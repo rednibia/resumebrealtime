@@ -33,11 +33,12 @@ def solution(input_value):
             if question == input_value:
                 solution = solution_line.split()[1]
                 break
-        if not solution:
-            solution = []
         f.close()
         
     finally:
+
+        if not solution:
+            solution = ''
 
         solution_list = [solution[i:i+3] for i in range(0, len(solution), 3)]
         return solution_list
