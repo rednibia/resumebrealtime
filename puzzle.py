@@ -1,6 +1,6 @@
-from sql_conn import solutionLookup
+from sql_conn import solution_lookup
 
-def puzzleSolver(puzzle):
+def puzzle_solver(puzzle):
 
     input_list = puzzle.split()[5:]
     input_value = "".join([input_decoder(n[1:]) for n in input_list])
@@ -22,7 +22,7 @@ def solution(input_value):
     try:
         
         #attempt to pull solution from mysql table
-        solution = solutionLookup(input_value)
+        solution = solution_lookup(input_value)
 
     except:
 

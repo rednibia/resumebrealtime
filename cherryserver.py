@@ -2,7 +2,7 @@ from cherrypy import config, expose, quickstart
 from ConfigParser import ConfigParser
 from server_log import log
 from os import getcwd, path
-from puzzle import puzzleSolver
+from puzzle import puzzle_solver
 
 configuration = ConfigParser()
 configuration.read("config.ini")
@@ -13,7 +13,7 @@ resume_url = configuration.get('Resume Settings', 'Resume Values')
 github_url = configuration.get('Resume Settings', 'Github Url')
 
 
-def responseDecider(question, description):
+def response_decider(question, description):
 
     responseDict = dict()
     responseDict[u'Ping'] = "OK"
@@ -36,7 +36,7 @@ def responseDecider(question, description):
     if question in responseDict.keys():
         return responseDict[question]
     elif question == u'Puzzle':
-        return puzzleSolver(description)
+        return puzzle_solver(description)
     else:
         return "NO RESPONSE"
 
@@ -50,7 +50,7 @@ class ResumeServer(object):
         if 'q' in kwargs and 'd' in kwargs:
             question = kwargs['q']
             description = kwargs['d']
-            response = responseDecider(question, description)
+            response = response_decider(question, description)
         else:
             response = "Hello World"
 

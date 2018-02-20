@@ -9,12 +9,12 @@ def log(log_message):
     try:
         logger
     except NameError:
-        startLogger()
+        start_logger()
 
     logger.info(log_message)
 
 
-def startLogger():
+def start_logger():
 
     global logger
     logger = get_logger()
