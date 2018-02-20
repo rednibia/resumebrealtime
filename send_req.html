@@ -1,0 +1,31 @@
+<head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+
+function httpGet(theUrl)
+{
+
+$.ajax({
+    url: theUrl,
+    data: { 
+        "VarA": 'a', 
+        "VarB": 'b', 
+        "VarC": 'c'
+    },
+    cache: false,
+    type: "GET",
+    crossDomain: true,
+    success: function(response) {
+    	alert(response);
+    },
+    error: function(xhr) {
+    	alert('error');
+    }
+});
+};
+
+
+httpGet('http://216.250.119.228/');
+
+</script>
+</head>
